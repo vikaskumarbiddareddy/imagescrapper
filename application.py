@@ -8,13 +8,13 @@ import pymongo
 logging.basicConfig(filename="scrapper.log" , level=logging.INFO)
 import os
 
-app = Flask(__name__)
+application = Flask(__name__)
 
-@app.route("/", methods = ['GET'])
+@application.route("/", methods = ['GET'])
 def homepage():
     return render_template("index.html")
 
-@app.route("/review" , methods = ['POST' , 'GET'])
+@application.route("/review" , methods = ['POST' , 'GET'])
 def index():
     if request.method == 'POST':
                 try:
@@ -74,4 +74,4 @@ def index():
 
 
 if __name__ == "__main__":
-    app.run()
+    application.run(host="0.0.0.0",port=8000)
